@@ -2,11 +2,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>JS+HTML5酷炫星空背景动画特效</title>
+<title></title>
 
 <link href="css/index_style.css" rel="stylesheet" type="text/css">
-<!-- <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script> -->
-
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<style type="text/css">
+	*{margin:0;padding:0;}
+	  body{width:100%;height:100%;overflow:hidden;}
+	  .box{width:80%;height:200px;margin:10% auto;}
+	  .btn{width:100px;height:100px;margin:50px auto 0;font-size:16px;color:#fff;text-align:center;line-height:100px;}
+	  .btn:hover{box-shadow: 0 0 10px #77aeff;cursor:pointer;}
+	  h1{font-size:300px;color:red;text-align:center;margin-top:-250px;}
+	  h1.active{animation:count .5s;}
+	  @keyframes count {
+		from {
+		  transform: scale(.1);
+		  opacity: 1;
+		}
+		to {
+		  transform: scale(3.5);
+		  opacity: 0;
+		  display:none;
+		}
+	  }
+</style>
 </head>
 <body>
 
@@ -14,7 +33,13 @@
 
 
 <div class="header" id="demo">
-  <canvas id="canvas"></canvas> 
+  <canvas id="canvas" style="height:100vh"></canvas> 
+</div>
+<div>
+<div class="btn" style="position: fixed;left: 0;right: 0;top:100px;"></div>
+	<div class="box">
+		<h1 style="display:none;">10</h1>
+	</div>
 </div>
 
 
@@ -123,6 +148,38 @@ function animation() {
 }
 
 animation();
+
+//倒计时
+let NUMBER = 1;
+  let COUNT = 6;
+  let COLORS = ['#8c00ff', '#006bff', '#4fff00', '#ffb800', '#ff0000'];
+  let timer = null;
+  function $(str) {
+    return document.querySelector(str);
+  }
+  function actionNum () {
+    let h1 = $('h1');
+    $('h1').style.display = 'block';
+    timer = setInterval(() => {
+      COUNT--;
+      NUMBER++;
+      if (COUNT >= 0) {
+        h1.classList.remove('active');
+        setTimeout(() => {
+          let num = Math.floor(Math.random()*5);
+          h1.innerText = COUNT;
+          h1.style.color = COLORS[num];
+          h1.classList.add('active');
+        }, 100);
+      } else {
+        clearInterval(timer);
+      }
+    }, 1000);
+  }
+    if (COUNT < 0) {
+      COUNT = 7;
+    }
+    actionNum();
 </script>
 
 </body>
