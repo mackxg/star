@@ -10,7 +10,7 @@
 	  .box{width:80%;height:200px;margin:10% auto;}
 	  .btn{width:100px;height:100px;margin:50px auto 0;font-size:16px;color:#fff;text-align:center;line-height:100px;}
 	  .btn:hover{box-shadow: 0 0 10px #77aeff;cursor:pointer;}
-	  h1{font-size:100px;color:red;text-align:center;margin-top:-500px;}
+	  h1{font-size:100px;color:red;text-align:center;margin-top:-300px;}
 	  h1.active{animation:count .5s;}
 	  @keyframes count {
 		from {
@@ -149,7 +149,7 @@ animation();
 
 //倒计时
 let NUMBER = 1;
-  let COUNT = 20;
+  let COUNT = 10;
   let COLORS = ['#8c00ff', '#006bff', '#4fff00', '#ffb800', '#ff0000'];
   let timer = null;
   function $(str) {
@@ -175,7 +175,7 @@ let NUMBER = 1;
     }, 1000);
   }
     if (COUNT < 0) {
-      COUNT = 21;
+      COUNT = 11;
     }
     actionNum();
 </script>
